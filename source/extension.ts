@@ -55,7 +55,7 @@ const lineObject = Object.freeze
     "end-line-number": (entry: BracketEntry) => `#${entry.end.position.line +1} `,
     "both-line-numbers": (entry: BracketEntry) => `#${entry.start.position.line +1}-${entry.end.position.line +1} `,
 });
-module Config
+namespace Config
 {
     export const root = vscel.config.makeRoot(packageJson);
     export const mode = root.makeMapEntry("bracketLens.mode", "active-text-editor", modeObject);
@@ -491,7 +491,7 @@ const parseBrackets = (document: vscode.TextDocument) => profile
         return result;
     }
 );
-module position
+namespace position
 {
     export const nextLine = (position: vscode.Position, increment: number = 1) => new vscode.Position
         (
